@@ -7,5 +7,4 @@ class User < ApplicationRecord
     
     has_secure_password
     VALID_PASWAAD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{8,32}\z/
-    validates :password, presence: true, uniqueness: true, format: {with: VALID_PASWAAD_REGEX} 
 end
