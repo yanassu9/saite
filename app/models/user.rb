@@ -7,4 +7,8 @@ class User < ApplicationRecord
     
     has_secure_password
     VALID_PASWAAD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{8,32}\z/
+    
+    
+    
+    has_many :topics
 end
