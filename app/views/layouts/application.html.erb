@@ -33,6 +33,11 @@
           <%= image_tag "icons/register.png" %>
           <% end %>
         </li>
+        <li>
+          <%= link_to new_topic_path do %>
+           <%= image_tag 'icons/camera.png' %>
+          <% end %>
+        </li>
         <% end %>
       </ul>
    </div>
@@ -44,6 +49,6 @@
     $(function(){
       $(".alert").fadeOut(5000);
     });
-  </script>
+      </script>
   </body>
 </html>
