@@ -1,12 +1,12 @@
 class TopicsController < ApplicationController
  def index
-  @topics = Topic.all
+  @topics = Topic.all.includes(:favorite_users)
  end
-  def new
-   @topic = Topic.new
-  end
+ def new
+  @topic = Topic.new
+ end
   
-  def create
+ def create
    @topic = current_user.topics.new(topic_params)
    
    if @topic.save
@@ -15,15 +15,13 @@ class TopicsController < ApplicationController
     flash.now[:danger]="投稿に失敗しました"
     render :new
    end
-  end 
+ end 
   
-  private
-  def topic_params
+ private
+ def topic_params
    params.require(:topic).permit(:image,:description)
-  end
+ end
   
-  def index
-   @topics = Topic.all.includes(:favorite_users)
-  end 
+
   
 end
